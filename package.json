@@ -1,6 +1,6 @@
 {
   "name": "supernal-linkedin-formatter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Framework-agnostic Markdown to LinkedIn formatter with pure algorithms, React hooks, and copy-paste widgets",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

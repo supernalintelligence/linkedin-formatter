@@ -128,6 +128,18 @@ export function markdownToLinkedIn(markdown: string, options: ConversionOptions 
     }).join('\n');
   }
 
+  // Add attribution if enabled
+  if (opts.addAttribution) {
+    const attributionMarker = '---\nFormatted with';
+    // Avoid duplicate attribution
+    if (!result.includes(attributionMarker)) {
+      const url = typeof opts.addAttribution === 'string' 
+        ? opts.addAttribution 
+        : 'https://supernal.ai/tools/linkedin-formatter';
+      result += `\n\n---\nFormatted with ${url}`;
+    }
+  }
+
   return result.trim();
 }
 

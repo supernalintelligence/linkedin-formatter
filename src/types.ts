@@ -4,6 +4,7 @@ export interface ConversionOptions {
   headingStyle?: 'bold' | 'uppercase' | 'both';
   codeBlockStyle?: 'monospace' | 'backticks';
   maxLineLength?: number;
+  addAttribution?: boolean | string; // true = default URL, string = custom URL
 }
 
 export const defaultOptions: ConversionOptions = {
@@ -12,6 +13,7 @@ export const defaultOptions: ConversionOptions = {
   headingStyle: 'both',
   codeBlockStyle: 'monospace',
   maxLineLength: undefined,
+  addAttribution: true, // Auto-add attribution by default
 };
 
 export interface AccessibilityReport {
