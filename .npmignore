@@ -1,0 +1,36 @@
+# Ignore source files (only publish built files)
+src/
+test.js
+*.test.ts
+*.spec.ts
+__tests__/
+
+# Build config
+tsconfig.json
+jest.config.js
+vite.config.ts
+
+# Development files
+.env
+.env.*
+.eslintrc*
+.prettierrc*
+
+# Documentation (use README.md in root)
+TESTING_GUIDE.md
+COMPLETE.md
+ARCHITECTURE.md
+
+# Node
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+

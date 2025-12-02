@@ -1,0 +1,45 @@
+#!/bin/bash
+
+# Pre-commit hook for linkedin-formatter package
+# Ensures package builds and tests pass before committing
+
+set -e
+
+echo "🔒 Pre-commit: Checking linkedin-formatter package..."
+
+# Change to the package directory
+cd "$(git rev-parse --show-toplevel)/families/supernal-social/packages/@supernal-social/linkedin-formatter"
+
+# Check if package.json exists
+if [ ! -f "package.json" ]; then
+    echo "⚠️  Skipping: Not in linkedin-formatter package directory"
+    exit 0
+fi
+
+# Run TypeScript check
+echo "📝 Running TypeScript check..."
+if ! pnpm exec tsc --noEmit; then
+    echo "❌ TypeScript errors found. Please fix before committing."
+    exit 1
+fi
+
+echo "✅ TypeScript check passed!"
+
+# Run build
+echo "🔨 Building package..."
+if ! pnpm build; then
+    echo "❌ Build failed. Please fix before committing."
+    exit 1
+fi
+
+# Run tests
+echo "🧪 Running tests..."
+if ! node test.js; then
+    echo "❌ Tests failed. Please fix before committing."
+    exit 1
+fi
+
+echo "✅ All checks passed!"
+
+exit 0
+
